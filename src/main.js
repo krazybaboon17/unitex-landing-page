@@ -89,10 +89,25 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
 
-    <div class="download-section">
-      <a href="/unitex" class="btn" download>Download CLI</a>
-      <br>
-      <span class="version-alert">[ v1.0.0 ACTIVE ] UNICODE ONLY. LATEX STRINGS (e.g. \\pi) DEPLOYING IN v2.0.0.</span>
+    <div class="install-section">
+      <h2>Install & Setup</h2>
+      
+      <div class="code-block-wrapper">
+        <div class="code-block-header">TERMINAL</div>
+        <code class="install-cmd">curl -sL https://unitex-seven.vercel.app/install.sh | bash</code>
+      </div>
+      
+      <div class="setup-instructions">
+        <h3>Setup Instructions</h3>
+        <ul>
+          <li><strong>Run it anywhere:</strong> After running the install script, you can start the app from any terminal simply by typing <code>unitex</code>.</li>
+          <li><strong>Permissions required:</strong> Because UniTeX magically types text for you, macOS will require you to grant it <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (like Terminal or iTerm) to <strong>ON</strong> the first time you run it, or it will not be able to replace your text.</li>
+        </ul>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="version-alert">[ v1.0.0 ACTIVE ] UNICODE ONLY. LATEX STRINGS (e.g. \\pi) DEPLOYING IN v2.0.0.</span>
+      </div>
     </div>
 
     <footer>

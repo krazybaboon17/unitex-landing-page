@@ -230,41 +230,85 @@ code {
   margin: 0 0 10px 0;
 }
 
-/* Download Section */
-.download-section {
+/* Install Section */
+.install-section {
   margin-top: 100px;
-  text-align: center;
-  padding: 80px 20px;
+  padding: 60px 5vw;
   border: var(--border-width) solid var(--fg);
-  background: repeating-linear-gradient(
-    45deg,
-    #000,
-    #000 10px,
-    #111 10px,
-    #111 20px
-  );
+  background: var(--bg);
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.install-section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 40px;
+  border: none;
+  padding: 0;
+}
+
+.code-block-wrapper {
+  border: 2px solid var(--fg);
+  margin-bottom: 50px;
+}
+
+.code-block-header {
   background: var(--fg);
   color: var(--bg);
-  padding: 25px 60px;
-  font-size: 2rem;
+  padding: 10px 20px;
+  font-family: 'Space Mono', monospace;
   font-weight: 900;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  border: var(--border-width) solid var(--fg);
+  font-size: 1rem;
 }
 
-.btn:hover {
-  background: var(--bg);
+.install-cmd {
+  display: block;
+  background: #111;
+  color: #0f0;
+  padding: 25px;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.setup-instructions {
+  border-top: 2px dashed #444;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+
+.setup-instructions h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
   color: var(--fg);
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.setup-instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.setup-instructions li {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 35px;
+  color: #ccc;
+}
+
+.setup-instructions li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--fg);
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+}
+
+.setup-instructions strong {
+  color: var(--fg);
 }
 
 .version-alert {
