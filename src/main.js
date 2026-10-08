@@ -106,7 +106,7 @@ document.querySelector('#app').innerHTML = `
       </div>
 
       <div style="text-align: center;">
-        <span class="version-alert">[ v1.0.0 ACTIVE ] UNICODE ONLY. LATEX STRINGS (e.g. \\pi) DEPLOYING IN v2.0.0.</span>
+        <span class="version-alert">[ v1.0.1 ACTIVE ] UNICODE ONLY. LATEX STRINGS (e.g. \\pi) DEPLOYING IN v2.0.0.</span>
       </div>
     </div>
 
