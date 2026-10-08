@@ -21,8 +21,12 @@ export default async function handler(req, res) {
     // Dynamically fetch available models to avoid decommissioned model errors
     const modelsData = await groq.models.list();
     const availableModels = modelsData.data;
-    // Prefer llama, mixtral, or gemma models
-    const textModels = availableModels.filter(m => m.id.includes('llama') || m.id.includes('mixtral') || m.id.includes('gemma'));
+    // Prefer llama, mixtral, or gemma models, but exclude moderation (guard) models
+    const textModels = availableModels.filter(m => 
+      (m.id.includes('llama') || m.id.includes('mixtral') || m.id.includes('gemma')) && 
+      !m.id.includes('guard') &&
+      !m.id.includes('vision')
+    );
     const selectedModel = textModels.length > 0 ? textModels[0].id : availableModels[0].id;
 
     const systemPrompt = "You are a helpful support assistant for UniTeX, a Mac menu bar app that allows users to type math globally using shorthands like //pi. You help users troubleshoot Mac Privacy & Security settings, specifically Accessibility permissions and Input Monitoring. Keep your answers concise, friendly, and helpful. Do not use complex markdown.";
