@@ -399,29 +399,36 @@ footer {
 }
 
 .msg {
-  padding: 10px;
-  border: 2px solid var(--fg);
+  padding: 10px 15px;
+  border-radius: 18px;
   max-width: 80%;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  border: none;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .msg.bot {
   align-self: flex-start;
-  background: #222;
+  background: #333;
+  color: var(--fg);
+  border-bottom-left-radius: 4px;
 }
 
 .msg.user {
   align-self: flex-end;
-  background: var(--fg);
-  color: var(--bg);
+  background: #007aff;
+  color: #fff;
+  border-bottom-right-radius: 4px;
 }
 
 .chatbot-input {
   display: flex;
   border-top: var(--border-width) solid var(--fg);
+  align-items: flex-end;
 }
 
-.chatbot-input input {
+.chatbot-input textarea {
   flex: 1;
   padding: 15px;
   background: var(--bg);
@@ -429,10 +436,15 @@ footer {
   border: none;
   font-family: 'Space Mono', monospace;
   outline: none;
+  resize: none;
+  min-height: 20px;
+  max-height: 120px;
+  line-height: 1.5;
+  box-sizing: content-box;
 }
 
 .chatbot-input button {
-  padding: 0 20px;
+  padding: 15px 20px;
   background: var(--fg);
   color: var(--bg);
   border: none;
@@ -441,4 +453,5 @@ footer {
   cursor: pointer;
   font-family: 'Space Grotesk', sans-serif;
   text-transform: uppercase;
+  height: 100%;
 }

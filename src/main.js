@@ -124,7 +124,7 @@ document.querySelector('#app').innerHTML = `
       <div class="msg bot">Hi! Need help with Mac Privacy & Security settings for UniTeX?</div>
     </div>
     <div class="chatbot-input">
-      <input type="text" id="chatbot-input-field" placeholder="Ask something..." />
+      <textarea id="chatbot-input-field" placeholder="Ask something..." rows="1"></textarea>
       <button id="chatbot-send">Send</button>
     </div>
   </div>
@@ -157,6 +157,7 @@ const sendMessage = async () => {
   userMsg.textContent = text;
   chatbotMessages.appendChild(userMsg);
   chatbotInput.value = '';
+  chatbotInput.style.height = 'auto';
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
   const typingMsg = document.createElement('div');
@@ -190,7 +191,14 @@ const sendMessage = async () => {
 };
 
 chatbotSend.addEventListener('click', sendMessage);
-chatbotInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') sendMessage();
+chatbotInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+chatbotInput.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
 });
 
