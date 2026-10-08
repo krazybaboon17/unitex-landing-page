@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     // Prefer llama, mixtral, or gemma models, but exclude moderation (guard) models
     const textModels = availableModels.filter(m => {
       const id = m.id.toLowerCase();
-      return (id.includes('llama') || id.includes('mixtral') || id.includes('gemma') || id.includes('qwen')) && 
+      return (id.includes('llama') || id.includes('mixtral') || id.includes('gemma')) && 
              !id.includes('guard') &&
              !id.includes('vision') &&
              !id.includes('whisper');
@@ -43,6 +43,7 @@ export default async function handler(req, res) {
         { role: 'user', content: message }
       ],
       model: selectedModel,
+      max_tokens: 250,
     });
 
     const responseText = chatCompletion.choices[0]?.message?.content || "";
