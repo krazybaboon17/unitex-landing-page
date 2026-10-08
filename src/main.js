@@ -114,4 +114,75 @@ document.querySelector('#app').innerHTML = `
       <p>CREATED FOR MACOS. BUILT FOR SPEED. &copy; 2026 UNITEX.</p>
     </footer>
   </div>
+  
+  <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header" id="chatbot-header">
+      <span>Mac Privacy Helper</span>
+      <button id="chatbot-close">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="msg bot">Hi! Need help with Mac Privacy & Security settings for UniTeX?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbot-input-field" placeholder="Ask something..." />
+      <button id="chatbot-send">Send</button>
+    </div>
+  </div>
+  <button class="chatbot-toggle" id="chatbot-toggle">💬</button>
 `
+
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbot = document.getElementById('chatbot');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotSend = document.getElementById('chatbot-send');
+const chatbotInput = document.getElementById('chatbot-input-field');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+chatbotToggle.addEventListener('click', () => {
+  chatbot.style.display = 'flex';
+  chatbotToggle.style.display = 'none';
+});
+
+chatbotClose.addEventListener('click', () => {
+  chatbot.style.display = 'none';
+  chatbotToggle.style.display = 'flex';
+});
+
+const getBotResponse = (msg) => {
+  const lowerMsg = msg.toLowerCase();
+  if (lowerMsg.includes('accessibility')) {
+    return 'To grant Accessibility: Go to System Settings > Privacy & Security > Accessibility. Click the "+" to add your terminal app, or toggle it on if it is already there.';
+  }
+  if (lowerMsg.includes('input monitoring')) {
+    return 'UniTeX might need Input Monitoring depending on your macOS version. Check System Settings > Privacy & Security > Input Monitoring.';
+  }
+  if (lowerMsg.includes('not working') || lowerMsg.includes('error')) {
+    return 'If it is not working, try removing your terminal from the Accessibility list and adding it again. Then restart the terminal.';
+  }
+  return 'I am a simple bot. Try asking about "accessibility" or "input monitoring".';
+};
+
+const sendMessage = () => {
+  const text = chatbotInput.value.trim();
+  if (!text) return;
+  
+  const userMsg = document.createElement('div');
+  userMsg.className = 'msg user';
+  userMsg.textContent = text;
+  chatbotMessages.appendChild(userMsg);
+  chatbotInput.value = '';
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'msg bot';
+    botMsg.textContent = getBotResponse(text);
+    chatbotMessages.appendChild(botMsg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }, 500);
+};
+
+chatbotSend.addEventListener('click', sendMessage);
+chatbotInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+

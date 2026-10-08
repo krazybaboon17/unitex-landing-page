@@ -331,3 +331,114 @@ footer {
   color: var(--gray);
   font-size: 0.9rem;
 }
+
+/* Chatbot */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 24px;
+  border: 2px solid var(--fg);
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 4px 4px 0px var(--gray);
+  transition: transform 0.2s;
+}
+
+.chatbot-toggle:hover {
+  transform: translateY(-5px);
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  height: 450px;
+  background: var(--bg);
+  border: var(--border-width) solid var(--fg);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 10px 10px 0px var(--fg);
+}
+
+.chatbot-header {
+  background: var(--fg);
+  color: var(--bg);
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: var(--bg);
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  padding: 10px;
+  border: 2px solid var(--fg);
+  max-width: 80%;
+  font-size: 0.9rem;
+}
+
+.msg.bot {
+  align-self: flex-start;
+  background: #222;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.chatbot-input {
+  display: flex;
+  border-top: var(--border-width) solid var(--fg);
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 15px;
+  background: var(--bg);
+  color: var(--fg);
+  border: none;
+  font-family: 'Space Mono', monospace;
+  outline: none;
+}
+
+.chatbot-input button {
+  padding: 0 20px;
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  border-left: var(--border-width) solid var(--fg);
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+}
