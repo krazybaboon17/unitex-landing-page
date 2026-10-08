@@ -24,8 +24,9 @@ export default async function handler(req, res) {
     // Prefer llama, mixtral, or gemma models, but exclude moderation (guard) models
     const textModels = availableModels.filter(m => {
       const id = m.id.toLowerCase();
-      return (id.includes('llama') || id.includes('mixtral') || id.includes('gemma')) && 
+      return (id.includes('llama') || id.includes('mixtral') || id.includes('gemma') || id.includes('gpt-oss') || id.includes('allam')) && 
              !id.includes('guard') &&
+             !id.includes('safeguard') &&
              !id.includes('vision') &&
              !id.includes('whisper');
     });
