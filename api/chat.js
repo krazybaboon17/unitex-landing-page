@@ -25,7 +25,7 @@ export default async function handler(req, res) {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: message }
       ],
-      model: 'llama-3.1-8b-instant',
+      model: 'mixtral-8x7b-32768',
     });
 
     const responseText = chatCompletion.choices[0]?.message?.content || "";
