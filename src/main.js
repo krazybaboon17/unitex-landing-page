@@ -148,21 +148,7 @@ chatbotClose.addEventListener('click', () => {
   chatbotToggle.style.display = 'flex';
 });
 
-const getBotResponse = (msg) => {
-  const lowerMsg = msg.toLowerCase();
-  if (lowerMsg.includes('accessibility')) {
-    return 'To grant Accessibility: Go to System Settings > Privacy & Security > Accessibility. Click the "+" to add your terminal app, or toggle it on if it is already there.';
-  }
-  if (lowerMsg.includes('input monitoring')) {
-    return 'UniTeX might need Input Monitoring depending on your macOS version. Check System Settings > Privacy & Security > Input Monitoring.';
-  }
-  if (lowerMsg.includes('not working') || lowerMsg.includes('error')) {
-    return 'If it is not working, try removing your terminal from the Accessibility list and adding it again. Then restart the terminal.';
-  }
-  return 'I am a simple bot. Try asking about "accessibility" or "input monitoring".';
-};
-
-const sendMessage = () => {
+const sendMessage = async () => {
   const text = chatbotInput.value.trim();
   if (!text) return;
   
@@ -171,14 +157,36 @@ const sendMessage = () => {
   userMsg.textContent = text;
   chatbotMessages.appendChild(userMsg);
   chatbotInput.value = '';
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
-  setTimeout(() => {
+  const typingMsg = document.createElement('div');
+  typingMsg.className = 'msg bot';
+  typingMsg.textContent = 'Thinking...';
+  chatbotMessages.appendChild(typingMsg);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    
+    const data = await res.json();
+    chatbotMessages.removeChild(typingMsg);
+
     const botMsg = document.createElement('div');
     botMsg.className = 'msg bot';
-    botMsg.textContent = getBotResponse(text);
+    botMsg.textContent = data.response || data.error || 'Something went wrong.';
     chatbotMessages.appendChild(botMsg);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }, 500);
+  } catch (err) {
+    chatbotMessages.removeChild(typingMsg);
+    const botMsg = document.createElement('div');
+    botMsg.className = 'msg bot';
+    botMsg.textContent = 'Oops, I am having trouble connecting to my brain. Please try again later!';
+    chatbotMessages.appendChild(botMsg);
+  }
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 };
 
 chatbotSend.addEventListener('click', sendMessage);
