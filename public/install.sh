@@ -1,10 +1,10 @@
 #!/bin/bash
-# unitex Install Script
+# UniTeX Install Script
 
-echo "Downloading unitex..."
+echo "Downloading UniTeX..."
 
 # Replace this URL with the actual link to your uploaded executable later!
-DOWNLOAD_URL="https://unitex-seven.vercel.app/unitex"
+DOWNLOAD_URL="https://unitex-seven.vercel.app/UniTeX"
 
 # Download the executable to a temporary location
 curl -# -L -o /tmp/unitex_download "$DOWNLOAD_URL"
@@ -18,5 +18,5 @@ sudo mv /tmp/unitex_download /usr/local/bin/unitex
 sudo chmod +x /usr/local/bin/unitex
 
 echo ""
-echo "✅ unitex has been successfully installed!"
+echo "✅ UniTeX has been successfully installed!"
 echo "You can now run it from any terminal by typing: unitex"
