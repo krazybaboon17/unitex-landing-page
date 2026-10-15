@@ -9,15 +9,15 @@ document.querySelector('#app').innerHTML = `
 
     <div class="marquee">
       <div class="marquee-content">
-        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MAC OS</span> • <span>NO MENU BAR CLUTTER</span> • 
-        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MAC OS</span> • <span>NO MENU BAR CLUTTER</span> • 
+        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MAC OS</span> • <span>AP CALC BC ENGINE</span> • <span>NESTED MATH TEMPLATES</span> • 
+        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MAC OS</span> • <span>AP CALC BC ENGINE</span> • <span>NESTED MATH TEMPLATES</span> • 
       </div>
     </div>
 
     <div class="grid">
       <div class="box">
         <h2>The Engine</h2>
-        <p>UniTeX listens globally across macOS. Type a shorthand like <code>//pi</code> anywhere—whether in your notes, browser, or terminal. It intercepts it, erases the trigger, and drops the correct symbol instantly. No menus. No copy-pasting. Pure typing flow.</p>
+        <p>UniTeX listens globally across macOS. Type shorthand like <code>//lim</code> or <code>//frac</code> anywhere—whether in your notes, browser, or terminal. It intercepts triggers, erases them, and injects math templates instantly. With full nested template support, compose fractions inside limits and powers inside fractions without awkward spaces or breaking your flow.</p>
         <div class="metrics">
           <div class="metric">
             <span class="metric-val">~0.1s</span>
@@ -34,6 +34,41 @@ document.querySelector('#app').innerHTML = `
         <h2>Active Mappings</h2>
         <div class="mapping-list">
           <div class="mapping-item">
+            <code>//lim</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">lim_(□→□) (□)</span>
+          </div>
+          <div class="mapping-item">
+            <code>//to</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">→</span>
+          </div>
+          <div class="mapping-item">
+            <code>//frac</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">(□)/(□)</span>
+          </div>
+          <div class="mapping-item">
+            <code>//pow</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">x²</span>
+          </div>
+          <div class="mapping-item">
+            <code>//int</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">∫</span>
+          </div>
+          <div class="mapping-item">
+            <code>//prime</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">′</span>
+          </div>
+          <div class="mapping-item">
+            <code>//sqrt</code>
+            <span class="arrow">&rarr;</span>
+            <span class="highlight">√</span>
+          </div>
+          <div class="mapping-item">
             <code>//pi</code>
             <span class="arrow">&rarr;</span>
             <span class="highlight">π</span>
@@ -44,27 +79,12 @@ document.querySelector('#app').innerHTML = `
             <span class="highlight">θ</span>
           </div>
           <div class="mapping-item">
-            <code>//int</code>
+            <code>//infty</code>
             <span class="arrow">&rarr;</span>
-            <span class="highlight">∫</span>
-          </div>
-          <div class="mapping-item">
-            <code>//sqrt</code>
-            <span class="arrow">&rarr;</span>
-            <span class="highlight">√</span>
-          </div>
-          <div class="mapping-item">
-            <code>//alpha</code>
-            <span class="arrow">&rarr;</span>
-            <span class="highlight">α</span>
-          </div>
-          <div class="mapping-item">
-            <code>//sum</code>
-            <span class="arrow">&rarr;</span>
-            <span class="highlight">∑</span>
+            <span class="highlight">∞</span>
           </div>
         </div>
-        <p class="mapping-note">* Fully customizable via JSON configuration.</p>
+        <p class="mapping-note">* Fully customizable via customShortcuts.txt or ~/.unitex/customShortcuts.txt.</p>
       </div>
     </div>
 
@@ -84,7 +104,7 @@ document.querySelector('#app').innerHTML = `
         <div class="step">
           <div class="step-num">03</div>
           <h3>Type</h3>
-          <p>Type math naturally anywhere you want. Watch it transform instantly into the symbols you need.</p>
+          <p>Type math naturally anywhere you want. Templates and nested expressions transform instantly with seamless box navigation.</p>
         </div>
       </div>
     </div>
@@ -106,7 +126,7 @@ document.querySelector('#app').innerHTML = `
       </div>
 
       <div style="text-align: center;">
-        <span class="version-alert">[ v1.0.1 ACTIVE ] UNICODE ONLY. LATEX STRINGS (e.g. \\pi) DEPLOYING IN v2.0.0.</span>
+        <span class="version-alert">[ v1.1.0 ACTIVE ] AP CALC BC ENGINE & NESTED TEMPLATES DEPLOYED. LATEX STRINGS DEPLOYING IN v2.0.0.</span>
       </div>
     </div>
 
@@ -201,4 +221,3 @@ chatbotInput.addEventListener('input', function() {
   this.style.height = 'auto';
   this.style.height = (this.scrollHeight) + 'px';
 });
-
