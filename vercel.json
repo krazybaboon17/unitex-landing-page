@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/UniTeX", "destination": "/unitex" }
+    { "source": "/UniFlow", "destination": "/uniflow" }
   ]
 }

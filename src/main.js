@@ -87,7 +87,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <nav class="top-nav">
       <div class="nav-left">
-        <span class="nav-brand">UNITEX</span>
+        <span class="nav-brand">UNIFLOW</span>
         <span class="status-pill"><span class="status-dot"></span> v1.1.0 • PURE UNICODE</span>
       </div>
       <div class="nav-links">
@@ -95,7 +95,7 @@ document.querySelector('#app').innerHTML = `
         <a href="#philosophy" class="nav-link">Why Unicode</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
         <a href="#install" class="nav-link">Install</a>
-        <a href="https://github.com/krazybaboon17/UniTeX" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
+        <a href="https://github.com/krazybaboon17/UniFlow" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
           <svg class="gh-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -105,7 +105,7 @@ document.querySelector('#app').innerHTML = `
     </nav>
 
     <header>
-      <h1>UNITEX</h1>
+      <h1>UNIFLOW</h1>
       <div class="subtitle">Global Math Typing Anywhere. Pure Unicode. Zero Friction.</div>
     </header>
 
@@ -122,7 +122,7 @@ document.querySelector('#app').innerHTML = `
         <span class="philosophy-badge">DESIGN ARCHITECTURE</span>
         <h2>Why Pure Unicode Instead of LaTeX?</h2>
         <p class="philosophy-subtitle">
-          UniTeX is intentionally engineered around universal Unicode characters rather than generating raw LaTeX code. Here is why:
+          UniFlow is intentionally engineered around universal Unicode characters rather than generating raw LaTeX code. Here is why:
         </p>
       </div>
 
@@ -136,13 +136,13 @@ document.querySelector('#app').innerHTML = `
         <div class="philosophy-card">
           <div class="philosophy-icon">🌐</div>
           <h3>Everywhere Else Has Nothing</h3>
-          <p>When typing in Discord, Slack, Google Docs, Notion, email, Jupyter notebook comments, code docstrings, or terminal text fields, there is no TeX compiler. UniTeX brings clean, instant math notation everywhere.</p>
+          <p>When typing in Discord, Slack, Google Docs, Notion, email, Jupyter notebook comments, code docstrings, or terminal text fields, there is no TeX compiler. UniFlow brings clean, instant math notation everywhere.</p>
         </div>
 
         <div class="philosophy-card">
           <div class="philosophy-icon">📋</div>
           <h3>True Universal Portability</h3>
-          <p>Real Unicode symbols copy and paste cleanly anywhere. Equations typed with UniTeX can be viewed on phones, tablets, and any OS without needing MathJax, KaTeX, or external rendering engines.</p>
+          <p>Real Unicode symbols copy and paste cleanly anywhere. Equations typed with UniFlow can be viewed on phones, tablets, and any OS without needing MathJax, KaTeX, or external rendering engines.</p>
         </div>
       </div>
     </section>
@@ -150,8 +150,8 @@ document.querySelector('#app').innerHTML = `
     <div class="grid">
       <div class="box engine-box">
         <h2>The Engine</h2>
-        <p>UniTeX runs silently in the background across your entire Mac. Type intuitive shorthand like <code>//lim</code>, <code>//ddx</code>, <code>//theta</code>, or <code>//frac</code> anywhere—in Apple Notes, Notion, Slack, Discord, Google Docs, VS Code, or terminal.</p>
-        <p>UniTeX erases the shorthand and types the formatted Unicode symbol or interactive template. Press <code>Esc</code> anytime to pause/resume or cancel an active template.</p>
+        <p>UniFlow runs silently in the background across your entire Mac. Type intuitive shorthand like <code>//lim</code>, <code>//ddx</code>, <code>//theta</code>, or <code>//frac</code> anywhere—in Apple Notes, Notion, Slack, Discord, Google Docs, VS Code, or terminal.</p>
+        <p>UniFlow erases the shorthand and types the formatted Unicode symbol or interactive template. Press <code>Esc</code> anytime to pause/resume or cancel an active template.</p>
         
         <div class="metrics">
           <div class="metric">
@@ -193,7 +193,7 @@ document.querySelector('#app').innerHTML = `
           <!-- Populated by JS -->
         </div>
 
-        <p class="mapping-note">💡 Click any shortcut to copy its trigger. Fully customizable in <code>~/.unitex/customShortcuts.txt</code>.</p>
+        <p class="mapping-note">💡 Click any shortcut to copy its trigger. Fully customizable in <code>~/.uniflow/customShortcuts.txt</code>.</p>
       </div>
     </div>
 
@@ -203,17 +203,17 @@ document.querySelector('#app').innerHTML = `
         <div class="step">
           <div class="step-num">01</div>
           <h3>One-Line Install</h3>
-          <p>Clone the repository or run the install script. UniTeX installs directly to your system path with zero daemon bloat.</p>
+          <p>Clone the repository or run the install script. UniFlow installs directly to your system path with zero daemon bloat.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <h3>Grant Permissions</h3>
-          <p>Toggle Accessibility in macOS Privacy & Security. This allows UniTeX to detect keystrokes and insert Unicode symbols anywhere safely.</p>
+          <p>Toggle Accessibility in macOS Privacy & Security. This allows UniFlow to detect keystrokes and insert Unicode symbols anywhere safely.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <h3>Instant Math Typing</h3>
-          <p>Launch with <code>unitex</code>. Start typing your math notes anywhere in macOS. Press <code>Esc</code> to pause or resume at any time.</p>
+          <p>Launch with <code>uniflow</code>. Start typing your math notes anywhere in macOS. Press <code>Esc</code> to pause or resume at any time.</p>
         </div>
       </div>
     </div>
@@ -239,7 +239,7 @@ document.querySelector('#app').innerHTML = `
             <span id="copy-btn-text">COPY COMMAND</span>
           </button>
         </div>
-        <code class="install-cmd" id="install-cmd-text">curl -sL https://unitex-seven.vercel.app/install.sh | bash</code>
+        <code class="install-cmd" id="install-cmd-text">curl -sL https://uniflow-seven.vercel.app/install.sh | bash</code>
       </div>
 
       <div class="manual-download-bar">
@@ -247,23 +247,23 @@ document.querySelector('#app').innerHTML = `
           <strong>Prefer direct download or manual clone?</strong>
           <span>Grab the standalone Apple Silicon Mach-O binary directly or clone from GitHub:</span>
         </div>
-        <a href="/unitex" download="unitex" class="manual-dl-btn">
+        <a href="/uniflow" download="uniflow" class="manual-dl-btn">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          Download UniTeX Executable (~9.8 MB)
+          Download UniFlow Executable (~9.8 MB)
         </a>
       </div>
       
       <div class="setup-instructions">
         <h3>macOS Setup & Accessibility</h3>
         <ul>
-          <li><strong>Run it anywhere:</strong> After running the install script or <code>python3 -m pip install -e .</code>, start the app from any terminal simply by typing <code>unitex</code>.</li>
-          <li><strong>Permissions required:</strong> Because UniTeX simulates keyboard typing, macOS requires <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (Terminal, iTerm2, Warp, Ghostty) to <strong>ON</strong>.</li>
+          <li><strong>Run it anywhere:</strong> After running the install script or <code>python3 -m pip install -e .</code>, start the app from any terminal simply by typing <code>uniflow</code>.</li>
+          <li><strong>Permissions required:</strong> Because UniFlow simulates keyboard typing, macOS requires <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (Terminal, iTerm2, Warp, Ghostty) to <strong>ON</strong>.</li>
           <li><strong>Pause / Resume:</strong> Press the <code>Esc</code> key at any moment to toggle pause mode when typing normal code or text.</li>
-          <li><strong>Custom Shortcuts:</strong> Define your own shortcuts anytime in <code>~/.unitex/customShortcuts.txt</code> using <code>shortcut : value</code> format.</li>
+          <li><strong>Custom Shortcuts:</strong> Define your own shortcuts anytime in <code>~/.uniflow/customShortcuts.txt</code> using <code>shortcut : value</code> format.</li>
         </ul>
       </div>
 
@@ -274,13 +274,13 @@ document.querySelector('#app').innerHTML = `
 
     <footer>
       <div class="footer-content">
-        <p>CREATED FOR MACOS • AP CALC BC READY • PURE UNICODE • &copy; 2026 UNITEX</p>
+        <p>CREATED FOR MACOS • AP CALC BC READY • PURE UNICODE • &copy; 2026 UNIFLOW</p>
         <div class="footer-links">
-          <a href="https://github.com/krazybaboon17/UniTeX" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <a href="https://github.com/krazybaboon17/UniFlow" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
           <span class="sep">•</span>
-          <a href="https://github.com/krazybaboon17/UniTeX/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          <a href="https://github.com/krazybaboon17/UniFlow/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
           <span class="sep">•</span>
-          <a href="https://unitex-seven.vercel.app/install.sh" target="_blank" rel="noopener noreferrer">Install Script</a>
+          <a href="https://uniflow-seven.vercel.app/install.sh" target="_blank" rel="noopener noreferrer">Install Script</a>
         </div>
       </div>
     </footer>
@@ -293,11 +293,11 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="chatbot-chips">
       <button class="chat-prompt-chip" data-prompt="How do I grant Accessibility permissions in macOS?">Accessibility guide</button>
-      <button class="chat-prompt-chip" data-prompt="Why is UniTeX not replacing text when I type?">Not expanding?</button>
-      <button class="chat-prompt-chip" data-prompt="How do I add custom shortcuts in UniTeX?">Custom shortcuts</button>
+      <button class="chat-prompt-chip" data-prompt="Why is UniFlow not replacing text when I type?">Not expanding?</button>
+      <button class="chat-prompt-chip" data-prompt="How do I add custom shortcuts in UniFlow?">Custom shortcuts</button>
     </div>
     <div class="chatbot-messages" id="chatbot-messages">
-      <div class="msg bot">Hi! Need help with Mac Privacy & Security settings, Accessibility permissions, or setting up UniTeX? Ask me anything below!</div>
+      <div class="msg bot">Hi! Need help with Mac Privacy & Security settings, Accessibility permissions, or setting up UniFlow? Ask me anything below!</div>
     </div>
     <div class="chatbot-input">
       <textarea id="chatbot-input-field" placeholder="Ask something..." rows="1"></textarea>
