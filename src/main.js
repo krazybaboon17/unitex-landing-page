@@ -21,7 +21,7 @@ const shortcutsData = [
   { trigger: '//nabla', output: '∇', category: 'calc', desc: 'Del / gradient vector' },
 
   // Interactive Templates
-  { trigger: '//frac', output: '(□)/(□)', category: 'template', desc: 'Nested fraction template' },
+  { trigger: '//frac', output: '(□)/(□)', category: 'template', desc: 'Fraction template' },
   { trigger: '//pow', output: '□^□ (e.g. x²)', category: 'template', desc: 'Superscript power template' },
   { trigger: '//log', output: 'log_□(□)', category: 'template', desc: 'Logarithm with custom base' },
   { trigger: '//ln', output: 'ln(□)', category: 'template', desc: 'Natural logarithm' },
@@ -56,7 +56,7 @@ const shortcutsData = [
   { trigger: '//omega', output: 'ω', category: 'greek', desc: 'Omega' },
   { trigger: '//Omega', output: 'Ω', category: 'greek', desc: 'Omega (uppercase)' },
 
-  // Operators & Sets
+  // Operators, Logic & Constants
   { trigger: '//sqrt', output: '√', category: 'operator', desc: 'Square root' },
   { trigger: '//times', output: '×', category: 'operator', desc: 'Multiplication cross' },
   { trigger: '//div', output: '÷', category: 'operator', desc: 'Division symbol' },
@@ -71,63 +71,28 @@ const shortcutsData = [
   { trigger: '//geq', output: '≥', category: 'operator', desc: 'Greater than or equal' },
   { trigger: '//in', output: '∈', category: 'operator', desc: 'Element of' },
   { trigger: '//forall', output: '∀', category: 'operator', desc: 'For all' },
-  { trigger: '//exists', output: '∃', category: 'operator', desc: 'There exists' }
+  { trigger: '//exists', output: '∃', category: 'operator', desc: 'There exists' },
+  { trigger: '//hbar', output: 'ℏ', category: 'operator', desc: 'Reduced Planck constant' },
+  { trigger: '//deg', output: '°', category: 'operator', desc: 'Degree symbol' },
+  { trigger: '//equiv', output: '≡', category: 'operator', desc: 'Identical / equivalent' },
+  { trigger: '//cup', output: '∪', category: 'operator', desc: 'Set union' },
+  { trigger: '//cap', output: '∩', category: 'operator', desc: 'Set intersection' },
+  { trigger: '//subset', output: '⊂', category: 'operator', desc: 'Subset' },
+  { trigger: '//land', output: '∧', category: 'operator', desc: 'Logical AND' },
+  { trigger: '//lor', output: '∨', category: 'operator', desc: 'Logical OR' },
+  { trigger: '//iff', output: '⇔', category: 'operator', desc: 'If and only if (biconditional)' }
 ];
-
-// Interactive simulator conversions map
-const simReplacements = {
-  '//ddx': 'd/dx(x²)',
-  '//ddt': 'd/dt(r)',
-  '//ddy': 'd/dy(f)',
-  '//dydx': 'dy/dx',
-  '//dydt': 'dy/dt',
-  '//dxdt': 'dx/dt',
-  '//lim': 'lim_(x→0) ((sin(x))/(x))',
-  '//to': '→',
-  '//frac': '(a)/(b)',
-  '//pow': 'x²',
-  '//log': 'log₂(x)',
-  '//ln': 'ln(x)',
-  '//sin': 'sin(θ)',
-  '//cos': 'cos(θ)',
-  '//tan': 'tan(θ)',
-  '//int': '∫',
-  '//iint': '∬',
-  '//iiint': '∭',
-  '//oint': '∮',
-  '//prime': '′',
-  '//dprime': '″',
-  '//sqrt': '√',
-  '//cbrt': '∛(x)',
-  '//pi': 'π',
-  '//theta': 'θ',
-  '//alpha': 'α',
-  '//beta': 'β',
-  '//infty': '∞',
-  '//sum': '∑',
-  '//prod': '∏',
-  '//partial': '∂',
-  '//nabla': '∇',
-  '//times': '×',
-  '//div': '÷',
-  '//cdot': '·',
-  '//pm': '±',
-  '//approx': '≈',
-  '//neq': '≠',
-  '//leq': '≤',
-  '//geq': '≥'
-};
 
 document.querySelector('#app').innerHTML = `
   <div class="container">
     <nav class="top-nav">
       <div class="nav-left">
         <span class="nav-brand">UNITEX</span>
-        <span class="status-pill"><span class="status-dot"></span> v1.1.0 ACTIVE</span>
+        <span class="status-pill"><span class="status-dot"></span> v1.1.0 • PURE UNICODE</span>
       </div>
       <div class="nav-links">
-        <a href="#simulator" class="nav-link">Interactive Demo</a>
         <a href="#mappings" class="nav-link">Mappings</a>
+        <a href="#philosophy" class="nav-link">Why Unicode</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
         <a href="#install" class="nav-link">Install</a>
         <a href="https://github.com/krazybaboon17/UniTeX" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
@@ -141,52 +106,43 @@ document.querySelector('#app').innerHTML = `
 
     <header>
       <h1>UNITEX</h1>
-      <div class="subtitle">Global Math Typing. Zero Friction.</div>
+      <div class="subtitle">Global Math Typing Anywhere. Pure Unicode. Zero Friction.</div>
     </header>
 
     <div class="marquee">
       <div class="marquee-content">
-        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MACOS</span> • <span>AP CALC BC ENGINE</span> • <span>//ddx & //ddt DERIVATIVES</span> • <span>NESTED TEMPLATES</span> • <span>SUB-100MS LATENCY</span> • 
-        <span>WORKS IN ALL APPS</span> • <span>NO CONTEXT SWITCHING</span> • <span>GLOBAL LISTENER</span> • <span>NATIVE MACOS</span> • <span>AP CALC BC ENGINE</span> • <span>//ddx & //ddt DERIVATIVES</span> • <span>NESTED TEMPLATES</span> • <span>SUB-100MS LATENCY</span> • 
+        <span>100% PORTABLE UNICODE</span> • <span>WORKS IN ALL APPS</span> • <span>NO LATEX COMPILER NEEDED</span> • <span>DISCORD & GOOGLE DOCS READY</span> • <span>AP CALC BC ENGINE</span> • <span>//ddx & //ddt DERIVATIVES</span> • <span>ESC TO PAUSE</span> • <span>SUB-10MS LATENCY</span> • 
+        <span>100% PORTABLE UNICODE</span> • <span>WORKS IN ALL APPS</span> • <span>NO LATEX COMPILER NEEDED</span> • <span>DISCORD & GOOGLE DOCS READY</span> • <span>AP CALC BC ENGINE</span> • <span>//ddx & //ddt DERIVATIVES</span> • <span>ESC TO PAUSE</span> • <span>SUB-10MS LATENCY</span> • 
       </div>
     </div>
 
-    <!-- Live Interactive Simulator Section -->
-    <section class="simulator-section" id="simulator">
-      <div class="sim-header">
-        <div class="sim-title-group">
-          <span class="sim-badge">LIVE IN-BROWSER SIMULATOR</span>
-          <h2>Try UniTeX Right Now</h2>
-        </div>
-        <p class="sim-subtitle">Type shorthands like <code>//ddx</code>, <code>//lim</code>, <code>//frac</code>, or <code>//pi</code> below to see UniTeX transform them on the fly:</p>
+    <!-- Design Philosophy Section -->
+    <section class="philosophy-section" id="philosophy">
+      <div class="philosophy-header">
+        <span class="philosophy-badge">DESIGN ARCHITECTURE</span>
+        <h2>Why Pure Unicode Instead of LaTeX?</h2>
+        <p class="philosophy-subtitle">
+          UniTeX is intentionally engineered around universal Unicode characters rather than generating raw LaTeX code. Here is why:
+        </p>
       </div>
-      
-      <div class="sim-window">
-        <div class="sim-window-bar">
-          <div class="mac-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="sim-window-title">unitex-live-engine ~ interactive-sandbox</span>
-          <button class="sim-clear-btn" id="sim-clear-btn">Clear</button>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="philosophy-icon">⚡</div>
+          <h3>LaTeX Editors Already Have LaTeX</h3>
+          <p>Overleaf, Obsidian, Typst, and MS Word Equation Editor already feature specialized LaTeX autocomplete. Building another LaTeX generator creates redundant complexity where solutions already exist.</p>
         </div>
-        <div class="sim-input-area">
-          <textarea id="sim-input" placeholder="Click here and type: //ddx or //lim or //frac or //pi..." rows="3"></textarea>
-          <div class="sim-feedback" id="sim-feedback">UniTeX engine listening for // triggers...</div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-icon">🌐</div>
+          <h3>Everywhere Else Has Nothing</h3>
+          <p>When typing in Discord, Slack, Google Docs, Notion, email, Jupyter notebook comments, code docstrings, or terminal text fields, there is no TeX compiler. UniTeX brings clean, instant math notation everywhere.</p>
         </div>
-        <div class="sim-chips-bar">
-          <span class="chips-label">Quick Test Chips:</span>
-          <button class="chip" data-code="//ddx">//ddx</button>
-          <button class="chip" data-code="//ddt">//ddt</button>
-          <button class="chip" data-code="//dydx">//dydx</button>
-          <button class="chip" data-code="//lim">//lim</button>
-          <button class="chip" data-code="//frac">//frac</button>
-          <button class="chip" data-code="//int">//int</button>
-          <button class="chip" data-code="//sqrt">//sqrt</button>
-          <button class="chip" data-code="//pi">//pi</button>
-          <button class="chip" data-code="//theta">//theta</button>
-          <button class="chip" data-code="//infty">//infty</button>
+
+        <div class="philosophy-card">
+          <div class="philosophy-icon">📋</div>
+          <h3>True Universal Portability</h3>
+          <p>Real Unicode symbols copy and paste cleanly anywhere. Equations typed with UniTeX can be viewed on phones, tablets, and any OS without needing MathJax, KaTeX, or external rendering engines.</p>
         </div>
       </div>
     </section>
@@ -194,21 +150,25 @@ document.querySelector('#app').innerHTML = `
     <div class="grid">
       <div class="box engine-box">
         <h2>The Engine</h2>
-        <p>UniTeX runs silently in the background across your entire Mac. Type intuitive triggers like <code>//lim</code>, <code>//ddx</code>, or <code>//frac</code> anywhere—in Apple Notes, Notion, Slack, Discord, Google Docs, VS Code, or terminal.</p>
-        <p>UniTeX erases the shorthand and injects full math expressions instantly. Featuring a recursive multi-box template engine, easily nest fractions within limits and powers within fractions without breaking focus.</p>
+        <p>UniTeX runs silently in the background across your entire Mac. Type intuitive shorthand like <code>//lim</code>, <code>//ddx</code>, <code>//theta</code>, or <code>//frac</code> anywhere—in Apple Notes, Notion, Slack, Discord, Google Docs, VS Code, or terminal.</p>
+        <p>UniTeX erases the shorthand and types the formatted Unicode symbol or interactive template. Press <code>Esc</code> anytime to pause/resume or cancel an active template.</p>
         
         <div class="metrics">
           <div class="metric">
-            <span class="metric-val">~0.1s</span>
+            <span class="metric-val">&lt; 10ms</span>
             <span class="metric-label">LATENCY</span>
           </div>
           <div class="metric">
             <span class="metric-val">100%</span>
-            <span class="metric-label">APP COMPATIBILITY</span>
+            <span class="metric-label">PORTABILITY</span>
           </div>
           <div class="metric">
-            <span class="metric-val">50+</span>
+            <span class="metric-val">75+</span>
             <span class="metric-label">BUILT-IN MAPPINGS</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">0</span>
+            <span class="metric-label">COMPILERS NEEDED</span>
           </div>
         </div>
       </div>
@@ -226,14 +186,14 @@ document.querySelector('#app').innerHTML = `
           <button class="cat-btn" data-category="calc">AP Calc BC</button>
           <button class="cat-btn" data-category="template">Templates</button>
           <button class="cat-btn" data-category="greek">Greek</button>
-          <button class="cat-btn" data-category="operator">Operators</button>
+          <button class="cat-btn" data-category="operator">Operators & Logic</button>
         </div>
 
         <div class="mapping-list" id="mapping-list-container">
           <!-- Populated by JS -->
         </div>
 
-        <p class="mapping-note">* Fully customizable via <code>customShortcuts.txt</code> or <code>~/.unitex/customShortcuts.txt</code>.</p>
+        <p class="mapping-note">💡 Click any shortcut to copy its trigger. Fully customizable in <code>~/.unitex/customShortcuts.txt</code>.</p>
       </div>
     </div>
 
@@ -243,17 +203,17 @@ document.querySelector('#app').innerHTML = `
         <div class="step">
           <div class="step-num">01</div>
           <h3>One-Line Install</h3>
-          <p>Run the single terminal command below. UniTeX installs directly to your system path with zero hassle.</p>
+          <p>Clone the repository or run the install script. UniTeX installs directly to your system path with zero daemon bloat.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <h3>Grant Permissions</h3>
-          <p>Toggle Accessibility in macOS Privacy & Security. This allows UniTeX to detect keystrokes and type math anywhere safely.</p>
+          <p>Toggle Accessibility in macOS Privacy & Security. This allows UniTeX to detect keystrokes and insert Unicode symbols anywhere safely.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <h3>Instant Math Typing</h3>
-          <p>Launch with <code>unitex</code>. Start typing your math notes anywhere in macOS. Zero context switching forever.</p>
+          <p>Launch with <code>unitex</code>. Start typing your math notes anywhere in macOS. Press <code>Esc</code> to pause or resume at any time.</p>
         </div>
       </div>
     </div>
@@ -284,8 +244,8 @@ document.querySelector('#app').innerHTML = `
 
       <div class="manual-download-bar">
         <div class="manual-info">
-          <strong>Prefer direct download?</strong>
-          <span>Grab the standalone Apple Silicon Mach-O binary directly:</span>
+          <strong>Prefer direct download or manual clone?</strong>
+          <span>Grab the standalone Apple Silicon Mach-O binary directly or clone from GitHub:</span>
         </div>
         <a href="/unitex" download="unitex" class="manual-dl-btn">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -300,20 +260,21 @@ document.querySelector('#app').innerHTML = `
       <div class="setup-instructions">
         <h3>macOS Setup & Accessibility</h3>
         <ul>
-          <li><strong>Run it anywhere:</strong> After running the install script, you can start the app from any terminal simply by typing <code>unitex</code>.</li>
-          <li><strong>Permissions required:</strong> Because UniTeX simulates keyboard typing, macOS requires <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (Terminal, iTerm2, Warp, Ghostty) to <strong>ON</strong> the first time you run it.</li>
-          <li><strong>Custom Shortcuts:</strong> Define your own shortcuts anytime in <code>~/.unitex/customShortcuts.txt</code> using <code>//trigger:replacement</code> format.</li>
+          <li><strong>Run it anywhere:</strong> After running the install script or <code>python3 -m pip install -e .</code>, start the app from any terminal simply by typing <code>unitex</code>.</li>
+          <li><strong>Permissions required:</strong> Because UniTeX simulates keyboard typing, macOS requires <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (Terminal, iTerm2, Warp, Ghostty) to <strong>ON</strong>.</li>
+          <li><strong>Pause / Resume:</strong> Press the <code>Esc</code> key at any moment to toggle pause mode when typing normal code or text.</li>
+          <li><strong>Custom Shortcuts:</strong> Define your own shortcuts anytime in <code>~/.unitex/customShortcuts.txt</code> using <code>shortcut : value</code> format.</li>
         </ul>
       </div>
 
       <div style="text-align: center;">
-        <span class="version-alert">[ v1.1.0 ACTIVE ] AP CALC BC ENGINE, //ddx & //ddt DERIVATIVES, NESTED TEMPLATES & GLOBAL SPEED DEPLOYED.</span>
+        <span class="version-alert">[ v1.1.0 ACTIVE ] AP CALC BC ENGINE, //ddx & //ddt DERIVATIVES, NESTED TEMPLATES & GLOBAL UNICODE DEPLOYED.</span>
       </div>
     </div>
 
     <footer>
       <div class="footer-content">
-        <p>CREATED FOR MACOS • AP CALC BC READY • BUILT FOR SPEED • &copy; 2026 UNITEX</p>
+        <p>CREATED FOR MACOS • AP CALC BC READY • PURE UNICODE • &copy; 2026 UNITEX</p>
         <div class="footer-links">
           <a href="https://github.com/krazybaboon17/UniTeX" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
           <span class="sep">•</span>
@@ -344,15 +305,29 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
   <button class="chatbot-toggle" id="chatbot-toggle">💬</button>
+
+  <div class="copy-toast" id="copy-toast">Copied to clipboard!</div>
 `;
 
 // Populate Mappings List
 const mappingListContainer = document.getElementById('mapping-list-container');
 const categoryTabs = document.getElementById('category-tabs');
 const searchInput = document.getElementById('shortcut-search');
+const copyToast = document.getElementById('copy-toast');
 
 let currentCategory = 'all';
 let currentSearch = '';
+let toastTimeout = null;
+
+function showToast(msg) {
+  if (!copyToast) return;
+  copyToast.textContent = msg;
+  copyToast.classList.add('show');
+  if (toastTimeout) clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    copyToast.classList.remove('show');
+  }, 1800);
+}
 
 function renderMappings() {
   const filtered = shortcutsData.filter(item => {
@@ -371,20 +346,30 @@ function renderMappings() {
   }
 
   mappingListContainer.innerHTML = filtered.map(item => `
-    <div class="mapping-item" data-code="${item.trigger}" title="${item.desc} (click to try in simulator)">
+    <div class="mapping-item" data-code="${item.trigger}" title="Click to copy ${item.trigger}">
       <code>${item.trigger}</code>
       <span class="arrow">&rarr;</span>
       <span class="highlight">${item.output}</span>
     </div>
   `).join('');
 
-  // Add click to insert into simulator
+  // Add click to copy shortcut
   mappingListContainer.querySelectorAll('.mapping-item').forEach(el => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', async () => {
       const trigger = el.getAttribute('data-code');
-      testInSimulator(trigger);
-      const simSection = document.getElementById('simulator');
-      simSection.scrollIntoView({ behavior: 'smooth' });
+      try {
+        await navigator.clipboard.writeText(trigger);
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = trigger;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      el.classList.add('copied');
+      setTimeout(() => el.classList.remove('copied'), 600);
+      showToast(`Copied ${trigger} to clipboard!`);
     });
   });
 }
@@ -405,56 +390,6 @@ searchInput.addEventListener('input', (e) => {
 
 renderMappings();
 
-// Interactive Simulator Logic
-const simInput = document.getElementById('sim-input');
-const simFeedback = document.getElementById('sim-feedback');
-const simClearBtn = document.getElementById('sim-clear-btn');
-
-function triggerTransformation() {
-  let val = simInput.value;
-  let replaced = false;
-
-  // Check from longest trigger to shortest
-  const triggers = Object.keys(simReplacements).sort((a, b) => b.length - a.length);
-  for (const trig of triggers) {
-    if (val.includes(trig)) {
-      val = val.replaceAll(trig, simReplacements[trig]);
-      replaced = true;
-      simFeedback.innerHTML = `<span class="feedback-success">✓ Replaced <strong>${trig}</strong> &rarr; <strong>${simReplacements[trig]}</strong></span>`;
-      break;
-    }
-  }
-
-  if (replaced) {
-    simInput.value = val;
-    simInput.classList.add('flash-glow');
-    setTimeout(() => simInput.classList.remove('flash-glow'), 500);
-  } else if (!val.trim()) {
-    simFeedback.textContent = 'UniTeX engine listening for // triggers...';
-  }
-}
-
-simInput.addEventListener('input', triggerTransformation);
-
-function testInSimulator(code) {
-  simInput.value = code;
-  triggerTransformation();
-  simInput.focus();
-}
-
-document.querySelectorAll('.chips-bar .chip, .sim-chips-bar .chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    const code = chip.getAttribute('data-code');
-    testInSimulator(code);
-  });
-});
-
-simClearBtn.addEventListener('click', () => {
-  simInput.value = '';
-  simFeedback.textContent = 'UniTeX engine listening for // triggers...';
-  simInput.focus();
-});
-
 // Copy install command button
 const copyCmdBtn = document.getElementById('copy-cmd-btn');
 const copyBtnText = document.getElementById('copy-btn-text');
@@ -466,12 +401,12 @@ copyCmdBtn.addEventListener('click', async () => {
     await navigator.clipboard.writeText(text);
     copyBtnText.textContent = 'COPIED! ✓';
     copyCmdBtn.classList.add('copied');
+    showToast('Install command copied!');
     setTimeout(() => {
       copyBtnText.textContent = 'COPY COMMAND';
       copyCmdBtn.classList.remove('copied');
     }, 2200);
   } catch (err) {
-    // Fallback
     const ta = document.createElement('textarea');
     ta.value = text;
     document.body.appendChild(ta);
@@ -480,6 +415,7 @@ copyCmdBtn.addEventListener('click', async () => {
     document.body.removeChild(ta);
     copyBtnText.textContent = 'COPIED! ✓';
     copyCmdBtn.classList.add('copied');
+    showToast('Install command copied!');
     setTimeout(() => {
       copyBtnText.textContent = 'COPY COMMAND';
       copyCmdBtn.classList.remove('copied');

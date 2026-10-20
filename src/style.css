@@ -193,16 +193,17 @@ h1 {
   100% { transform: translateX(-50%); }
 }
 
-/* Live Simulator */
-.simulator-section {
-  margin-bottom: 70px;
+/* Philosophy Section: Why Unicode */
+.philosophy-section {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  border: var(--border-width) solid var(--fg);
+  background: var(--bg);
+  box-shadow: 12px 12px 0px var(--fg);
+  padding: 40px 5vw;
 }
 
-.sim-header {
-  margin-bottom: 25px;
-}
-
-.sim-badge {
+.philosophy-badge {
   display: inline-block;
   background: var(--green);
   color: #000;
@@ -211,12 +212,12 @@ h1 {
   font-weight: 900;
   padding: 4px 10px;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
-.sim-header h2 {
-  font-size: clamp(2.2rem, 3.5vw, 4rem);
-  margin: 0 0 10px 0;
+.philosophy-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  margin: 0 0 15px 0;
   border: none;
   padding: 0;
   text-transform: uppercase;
@@ -224,156 +225,82 @@ h1 {
   letter-spacing: -1px;
 }
 
-.sim-subtitle {
+.philosophy-subtitle {
   font-size: 1.15rem;
-  color: #bbb;
-  margin: 0;
+  color: #ccc;
+  margin-bottom: 35px;
+  max-width: 900px;
+  line-height: 1.6;
 }
 
-.sim-window {
-  border: var(--border-width) solid var(--fg);
-  background: #080808;
-  box-shadow: 12px 12px 0px var(--fg);
-  transition: transform 0.2s, box-shadow 0.2s;
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-.sim-window:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 15px 15px 0px var(--fg);
-}
-
-.sim-window-bar {
+.philosophy-card {
+  border: 2px solid #333;
+  background: #0d0d0d;
+  padding: 28px;
+  transition: transform 0.2s, border-color 0.2s;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #141414;
-  border-bottom: 2px solid var(--fg);
-  padding: 12px 20px;
+  flex-direction: column;
 }
 
-.mac-dots {
-  display: flex;
-  gap: 8px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-
-.sim-window-title {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
-  color: #aaa;
-}
-
-.sim-clear-btn {
-  background: transparent;
-  color: #aaa;
-  border: 1px solid #444;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.2s;
-}
-
-.sim-clear-btn:hover {
-  background: #333;
-  color: #fff;
-  border-color: #666;
-}
-
-.sim-input-area {
-  padding: 25px;
-  background: #050505;
-}
-
-#sim-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  color: #00ff66;
-  font-family: 'Space Mono', monospace;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  outline: none;
-  resize: vertical;
-  min-height: 80px;
-  transition: text-shadow 0.2s;
-}
-
-#sim-input::placeholder {
-  color: #444;
-  font-size: 1.2rem;
-}
-
-#sim-input.flash-glow {
-  text-shadow: 0 0 15px #00ff66;
-}
-
-.sim-feedback {
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px dashed #333;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.95rem;
-  color: #888;
-}
-
-.feedback-success {
-  color: #fff;
-}
-
-.feedback-success strong {
-  color: var(--green);
-  background: #112211;
-  padding: 2px 6px;
-  border: 1px solid #225522;
-}
-
-.sim-chips-bar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  background: #111;
-  padding: 15px 25px;
-  border-top: 2px solid #222;
-}
-
-.chips-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  color: #888;
-  text-transform: uppercase;
-  margin-right: 5px;
-}
-
-.chip {
-  background: #1a1a1a;
-  border: 1px solid #444;
-  color: #eee;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.chip:hover {
-  background: var(--fg);
-  color: var(--bg);
+.philosophy-card:hover {
+  transform: translateY(-3px);
   border-color: var(--fg);
-  transform: translateY(-2px);
+}
+
+.philosophy-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.philosophy-card h3 {
+  font-size: 1.35rem;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  color: var(--fg);
+  letter-spacing: -0.5px;
+}
+
+.philosophy-card p {
+  font-size: 1.05rem;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Copy Toast */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--green);
+  color: #000;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 12px 24px;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  z-index: 2000;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s;
+  pointer-events: none;
+}
+
+.copy-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.mapping-item.copied {
+  background: #003311 !important;
+  border-color: var(--green) !important;
 }
 
 /* Grid Layout */
