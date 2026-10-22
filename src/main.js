@@ -95,7 +95,7 @@ document.querySelector('#app').innerHTML = `
         <a href="#philosophy" class="nav-link">Why Unicode</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
         <a href="#install" class="nav-link">Install</a>
-        <a href="https://github.com/krazybaboon17/UniFlow" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
+        <a href="https://github.com/krazybaboon17/unitex" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
           <svg class="gh-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -203,7 +203,7 @@ document.querySelector('#app').innerHTML = `
         <div class="step">
           <div class="step-num">01</div>
           <h3>One-Line Install</h3>
-          <p>Clone the repository or run the install script. UniFlow installs directly to your system path with zero daemon bloat.</p>
+          <p>Run the install command in your terminal. UniFlow installs directly to your system path with zero daemon bloat.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
@@ -239,22 +239,7 @@ document.querySelector('#app').innerHTML = `
             <span id="copy-btn-text">COPY COMMAND</span>
           </button>
         </div>
-        <code class="install-cmd" id="install-cmd-text">curl -sL https://uniflow-seven.vercel.app/install.sh | bash</code>
-      </div>
-
-      <div class="manual-download-bar">
-        <div class="manual-info">
-          <strong>Prefer direct download or manual clone?</strong>
-          <span>Grab the standalone Apple Silicon Mach-O binary directly or clone from GitHub:</span>
-        </div>
-        <a href="/uniflow" download="uniflow" class="manual-dl-btn">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download UniFlow Executable (~9.8 MB)
-        </a>
+        <code class="install-cmd" id="install-cmd-text">curl -sL https://uniflow-type.vercel.app/install.sh | bash</code>
       </div>
       
       <div class="setup-instructions">
@@ -276,11 +261,11 @@ document.querySelector('#app').innerHTML = `
       <div class="footer-content">
         <p>CREATED FOR MACOS • AP CALC BC READY • PURE UNICODE • &copy; 2026 UNIFLOW</p>
         <div class="footer-links">
-          <a href="https://github.com/krazybaboon17/UniFlow" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <a href="https://github.com/krazybaboon17/unitex" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
           <span class="sep">•</span>
-          <a href="https://github.com/krazybaboon17/UniFlow/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          <a href="https://github.com/krazybaboon17/unitex/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
           <span class="sep">•</span>
-          <a href="https://uniflow-seven.vercel.app/install.sh" target="_blank" rel="noopener noreferrer">Install Script</a>
+          <a href="https://uniflow-type.vercel.app/install.sh" target="_blank" rel="noopener noreferrer">Install Script</a>
         </div>
       </div>
     </footer>

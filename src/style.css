@@ -636,56 +636,7 @@ code {
   white-space: nowrap;
 }
 
-/* Manual Download Bar */
-.manual-download-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 25px;
-  background: #111;
-  border: 1px solid #333;
-  margin-bottom: 40px;
-}
 
-.manual-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.manual-info strong {
-  font-size: 1.1rem;
-  color: var(--fg);
-}
-
-.manual-info span {
-  font-size: 0.95rem;
-  color: #888;
-}
-
-.manual-dl-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: var(--fg);
-  border: 2px solid var(--fg);
-  padding: 12px 20px;
-  text-decoration: none;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 900;
-  font-size: 1rem;
-  text-transform: uppercase;
-  transition: all 0.2s;
-}
-
-.manual-dl-btn:hover {
-  background: var(--fg);
-  color: var(--bg);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px var(--fg);
-}
 
 /* Setup Instructions */
 .setup-instructions {

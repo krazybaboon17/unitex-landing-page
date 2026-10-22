@@ -3,7 +3,7 @@
 
 echo "Downloading UniFlow..."
 
-DOWNLOAD_URL="https://uniflow-seven.vercel.app/uniflow"
+DOWNLOAD_URL="https://uniflow-type.vercel.app/uniflow"
 
 # Download the executable to a temporary location
 if ! curl -# -f -L -o /tmp/uniflow_download "$DOWNLOAD_URL"; then
