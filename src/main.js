@@ -8,12 +8,11 @@ const shortcutsData = [
   { trigger: '//dydx', output: 'dy/dx', category: 'calc', desc: 'First derivative' },
   { trigger: '//dydt', output: 'dy/dt', category: 'calc', desc: 'Rate of change' },
   { trigger: '//dxdt', output: 'dx/dt', category: 'calc', desc: 'Parametric velocity' },
-  { trigger: '//lim', output: 'lim_(□→□) (□)', category: 'calc', desc: 'Limit template with box navigation' },
   { trigger: '//to', output: '→', category: 'calc', desc: 'Right arrow / approaches' },
-  { trigger: '//int', output: '∫', category: 'calc', desc: 'Definite/indefinite integral' },
-  { trigger: '//iint', output: '∬', category: 'calc', desc: 'Double integral' },
-  { trigger: '//iiint', output: '∭', category: 'calc', desc: 'Triple integral' },
-  { trigger: '//oint', output: '∮', category: 'calc', desc: 'Contour line integral' },
+  { trigger: '//int', output: '∫_□^□ (e.g. ∫₀¹)', category: 'template', desc: 'Interactive definite integral template with sub/superscript limits' },
+  { trigger: '//oint', output: '∮_□^□', category: 'template', desc: 'Contour line integral template with limit boxes' },
+  { trigger: '//iint', output: '∬_□^□', category: 'template', desc: 'Double integral template with limit boxes' },
+  { trigger: '//iiint', output: '∭_□^□', category: 'template', desc: 'Triple integral template with limit boxes' },
   { trigger: '//prime', output: '′', category: 'calc', desc: 'Prime notation (f′)' },
   { trigger: '//dprime', output: '″', category: 'calc', desc: 'Second derivative (f″)' },
   { trigger: '//infty', output: '∞', category: 'calc', desc: 'Infinity' },
@@ -69,7 +68,8 @@ const shortcutsData = [
   { trigger: '//neq', output: '≠', category: 'operator', desc: 'Not equal' },
   { trigger: '//leq', output: '≤', category: 'operator', desc: 'Less than or equal' },
   { trigger: '//geq', output: '≥', category: 'operator', desc: 'Greater than or equal' },
-  { trigger: '//in', output: '∈', category: 'operator', desc: 'Element of' },
+  { trigger: '//belong', output: '∈', category: 'operator', desc: 'Element of (belongs to)' },
+  { trigger: '//Z', output: 'ℤ', category: 'operator', desc: 'Set of integers' },
   { trigger: '//forall', output: '∀', category: 'operator', desc: 'For all' },
   { trigger: '//exists', output: '∃', category: 'operator', desc: 'There exists' },
   { trigger: '//hbar', output: 'ℏ', category: 'operator', desc: 'Reduced Planck constant' },
@@ -94,6 +94,7 @@ document.querySelector('#app').innerHTML = `
         <a href="#mappings" class="nav-link">Mappings</a>
         <a href="#philosophy" class="nav-link">Why Unicode</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#guide" class="nav-link">Guide</a>
         <a href="#install" class="nav-link">Install</a>
         <a href="https://github.com/krazybaboon17/unitex" target="_blank" rel="noopener noreferrer" class="nav-btn github-btn">
           <svg class="gh-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -217,6 +218,69 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
     </div>
+
+
+    <!-- Comprehensive How-To Guide Section -->
+    <section class="guide-section" id="guide">
+      <div class="guide-header">
+        <span class="philosophy-badge">USER GUIDE</span>
+        <h2>Mastering UniFlow</h2>
+        <p class="philosophy-subtitle">Everything you need to write fluid, universal math notation at the speed of thought.</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-num">01</div>
+          <h3>Basic Shortcut Expansions</h3>
+          <p>Anywhere in macOS—notes, web browsers, Discord, Word, or code editors—simply type <code>//</code> followed by the symbol name. UniFlow detects the shorthand, removes it in &lt;10ms, and replaces it with the Unicode character.</p>
+          <div class="guide-example">
+            <code>//pi</code> → <span>π</span> &nbsp;|&nbsp; <code>//theta</code> → <span>θ</span> &nbsp;|&nbsp; <code>//belong</code> → <span>∈</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-num">02</div>
+          <h3>Interactive Integral Templates</h3>
+          <p>Type <code>//int</code>, <code>//oint</code>, <code>//iint</code>, or <code>//iiint</code>. UniFlow instantly injects the integral template <code>∫_□^□</code> with the lower limit box automatically highlighted.</p>
+          <div class="guide-steps">
+            <div><strong>1. Lower Limit:</strong> Type your lower limit (e.g. <code>0</code> or <code>a</code>).</div>
+            <div><strong>2. Switch Box:</strong> Press <kbd>Tab</kbd> or <kbd>→</kbd> to jump directly to the upper limit box.</div>
+            <div><strong>3. Upper Limit:</strong> Type upper limit (e.g. <code>1</code>, <code>b</code>, or <code>//infty</code>).</div>
+            <div><strong>4. Finalize:</strong> Press <kbd>Enter</kbd> or <kbd>Tab</kbd> to automatically format into <code>∫₀¹</code>.</div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-num">03</div>
+          <h3>Fractions & Nested Math</h3>
+          <p>Type <code>//frac</code> for <code>(□)/(□)</code>. You can nest shortcuts and expressions right inside any box:</p>
+          <div class="guide-example">
+            <code>//frac</code> → type <code>//pi</code> → press <kbd>Tab</kbd> → type <code>2</code> → <kbd>Enter</kbd> → <span>(π)/(2)</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-num">04</div>
+          <h3>Power & Subscript Shortcuts</h3>
+          <p>Easily type exponents and indices. Type your variable followed by <code>//pow</code> or <code>//_</code>:</p>
+          <div class="guide-example">
+            <code>x//pow</code> → type <code>2</code> → <span>x²</span> &nbsp;|&nbsp; <code>x//_</code> → type <code>i</code> → <span>xᵢ</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-num">05</div>
+          <h3>Pause, Resume & Cancel</h3>
+          <p>Working on normal code where you type <code>//</code> comments? Press <kbd>Esc</kbd> anytime to toggle UniFlow pause mode. Press <kbd>Esc</kbd> during an active template to cancel it instantly.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-num">06</div>
+          <h3>Custom Shortcuts</h3>
+          <p>Easily map your own personal shorthand by launching UniFlow in settings mode (press <code>0</code> at startup) or adding lines to <code>~/.uniflow/customShortcuts.txt</code> in <code>shortcut : value</code> format.</p>
+        </div>
+      </div>
+    </section>
 
     <div class="install-section" id="install">
       <h2>Install & Setup</h2>
