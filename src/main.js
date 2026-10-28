@@ -307,13 +307,40 @@ document.querySelector('#app').innerHTML = `
       </div>
       
       <div class="setup-instructions">
-        <h3>macOS Setup & Accessibility</h3>
-        <ul>
-          <li><strong>Run it anywhere:</strong> After running the install script or <code>python3 -m pip install -e .</code>, start the app from any terminal simply by typing <code>uniflow</code>.</li>
-          <li><strong>Permissions required:</strong> Because UniFlow simulates keyboard typing, macOS requires <strong>Accessibility Permissions</strong>. Go to <em>System Settings > Privacy & Security > Accessibility</em> and toggle your terminal app (Terminal, iTerm2, Warp, Ghostty) to <strong>ON</strong>.</li>
-          <li><strong>Pause / Resume:</strong> Press the <code>Esc</code> key at any moment to toggle pause mode when typing normal code or text.</li>
-          <li><strong>Custom Shortcuts:</strong> Define your own shortcuts anytime in <code>~/.uniflow/customShortcuts.txt</code> using <code>shortcut : value</code> format.</li>
-        </ul>
+        <div class="permissions-banner">
+          <div class="perm-icon">🛡️</div>
+          <div>
+            <h3 style="margin: 0 0 0.4rem 0; color: #f8fafc;">macOS Privacy & Security Setup</h3>
+            <p style="margin: 0; color: #cbd5e1; font-size: 0.92rem; line-height: 1.45;">
+              Because UniFlow works globally across all apps by intercepting shorthand keys and typing Unicode replacements, macOS requires standard Accessibility authorization.
+            </p>
+          </div>
+        </div>
+
+        <div class="perm-steps-grid">
+          <div class="perm-step-card">
+            <span class="perm-badge">STEP 1</span>
+            <h4>Open System Settings</h4>
+            <p>Open <strong>System Settings</strong> and navigate to <strong>Privacy & Security → Accessibility</strong>.</p>
+          </div>
+          <div class="perm-step-card">
+            <span class="perm-badge">STEP 2</span>
+            <h4>Enable Terminal / IDE</h4>
+            <p>Toggle your terminal app (<strong>Terminal</strong>, <strong>iTerm2</strong>, <strong>Warp</strong>, <strong>Ghostty</strong>, or <strong>VS Code</strong>) to <span style="color:#10b981; font-weight:600;">ON</span>.</p>
+          </div>
+          <div class="perm-step-card">
+            <span class="perm-badge">STEP 3</span>
+            <h4>Input Monitoring Check</h4>
+            <p>Verify that your terminal or Python process is also allowed under <strong>Privacy & Security → Input Monitoring</strong>.</p>
+          </div>
+        </div>
+
+        <div class="perm-troubleshoot-box">
+          <div style="font-weight: 600; color: #38bdf8; margin-bottom: 0.35rem;">💡 Pro-Tip for Permissions:</div>
+          <p style="margin: 0; font-size: 0.88rem; color: #94a3b8;">
+            If shortcuts are not expanding after an OS update, simply toggle the switch in Accessibility <strong>OFF and back ON</strong>, or click <strong>+</strong> to re-add your terminal app. Then restart your terminal session.
+          </p>
+        </div>
       </div>
 
       <div style="text-align: center;">
